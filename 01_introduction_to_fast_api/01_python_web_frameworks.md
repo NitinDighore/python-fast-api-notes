@@ -45,3 +45,40 @@ Today's API development requires modern tools tailored for modern needs. Develop
 * **Type-safe:** Utilizing automatic type checking to prevent bugs.
 * **Async-friendly:** Built-in support for asynchronous programming.
 * **Auto-documented:** Automatically generating interactive API documentation.
+
+---
+
+## Interview Questions
+
+**Q1: What is a web framework in the context of Python web development?**
+**Answer:** A web framework provides a collection of predefined libraries, modules, and packages that automatically handle low-level activities like network protocols, sockets, and thread management. This allows developers to focus on building the core application instead of reinventing the wheel.
+
+**Q2: Name some essential components of web development that a web framework typically handles out-of-the-box.**
+**Answer:** A web framework usually provides built-in tools for form handling, database abstraction, session management, template selection, handling requests and responses, and applying security mechanisms.
+
+**Q3: Can you describe the three layers of a standard 3-Tier Web Application Architecture?**
+**Answer:** The three layers are:
+1. **Presentation Tier (Front-end):** The user interface where users interact directly with the app.
+2. **Application / Service Tier (Back-end):** The middle logic tier where core business rules and processing are executed.
+3. **Persistence Tier (Data Tier):** The layer where data is permanently stored, managed, and retrieved (like a database).
+
+**Q4: In a 3-tier architecture, what technologies are commonly used in the Presentation Tier vs. the Application Tier?**
+**Answer:** The Presentation Tier typically uses HTML5, CSS3, JavaScript, and frameworks like Angular or React. The Application Tier uses back-end scripting or programming languages like Python, Java, NodeJS, PHP, or .NET.
+
+**Q5: How are Python web frameworks broadly categorized? Provide an example for each.**
+**Answer:** They are broadly categorized into three types: Full Stack Frameworks (e.g., Django), Lightweight/Micro Frameworks (e.g., Flask), and Modern API Frameworks (e.g., FastAPI).
+
+**Q6: What characterizes a "Full Stack" Python framework?**
+**Answer:** A Full Stack Framework provides a complete, heavyweight toolkit for developing web applications. It includes built-in components that support the required logic in all layers of a 3-tier application, such as application servers, template engines, authentication, and database abstraction.
+
+**Q7: When might a developer choose a Micro Framework over a Full Stack Framework?**
+**Answer:** A developer might choose a Micro Framework (like Flask) when building a simple web application or when they prefer flexibility. Micro frameworks provide only basic components (like handling requests and rendering responses), allowing developers to import additional, customized tools only as needed.
+
+**Q8: What is the primary focus of Modern API Frameworks like FastAPI?**
+**Answer:** Modern API Frameworks are specifically built for API (Application Programming Interface) development. They are designed to let different applications communicate with each other extremely quickly while automatically verifying that the exchanged data is in the correct format.
+
+**Q9: Why did the need for Modern Web Frameworks arise if tools like Django and Flask already existed?**
+**Answer:** Traditional frameworks were built before modern web development demands evolved. Today, developers need tools that are highly performant (fast), type-safe (preventing bugs through automatic type checking), async-friendly (natively supporting asynchronous programming), and capable of auto-generating interactive API documentation.
+
+**Q10: What does it mean for a modern API framework to be "Type-safe"?**
+**Answer:** Being type-safe means the framework utilizes automatic type checking on the incoming data. If the data sent does not match the expected format (for example, receiving text when a number is expected), the framework catches the error and prevents potential bugs or crashes.

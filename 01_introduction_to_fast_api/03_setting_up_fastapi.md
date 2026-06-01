@@ -97,3 +97,37 @@ To uninstall **all** packages listed in your `requirements.txt` file at once:
 ```cmd
 (environment) C:\FirstApp> pip uninstall -r requirements.txt -y
 ```
+
+---
+
+## Interview Questions 
+
+**Q1: Why is it important to use a virtual environment when developing a Python project? 
+**Answer:** A virtual environment keeps project dependencies completely isolated. This prevents version conflicts between different projects that might require different versions of packages or even Python itself. 
+
+**Q2: How do you create a virtual environment named environment using Python? 
+**Answer:** You can create it using the command: python -m venv environment. 
+
+**Q3: What command is used to activate a virtual environment on Windows? 
+**Answer:** From the folder containing the environment, you use the command: environment\Scripts\activate. 
+
+**Q4: What command would you use to install FastAPI along with its standard recommended dependencies? 
+**Answer:** You use the command: pip install fastapi[standard]. 
+
+**Q5: What is a requirements.txt file and why is it considered a best practice? 
+**Answer:** It is a file that lists all the project dependencies and their exact versions. It is considered a best practice because it makes it easier to share the project with other developers, track dependencies in version control, and deploy the application consistently. 
+
+**Q6: How do you install all dependencies listed in a requirements.txt file at once? 
+**Answer:** By running the command: pip install -r requirements.txt. 
+
+**Q7: How can you generate or update a requirements.txt file with your currently installed packages? 
+**Answer:** By using the command: pip freeze > requirements.txt. 
+
+**Q8: What command is used to start the Uvicorn development server for a FastAPI application where the main code is in main.py and the FastAPI instance is named app? 
+**Answer:** You use the command: uvicorn main:app --reload. 
+
+**Q9: What does the --reload flag do when running the Uvicorn server? 
+**Answer:** The --reload flag tells the server to restart automatically whenever you make changes to your code, which speeds up the development process. 
+
+**Q10: How can you uninstall all packages listed in your requirements.txt file without being prompted for confirmation for each package? 
+**Answer:** You can uninstall them all by appending the -y flag: pip uninstall -r requirements.txt -y.

@@ -74,3 +74,46 @@ From top to bottom, the execution stack looks like this:
 | **Data Checking**    | Manual validation required          | Done automatically (via Pydantic)              |
 | **Built-in Testing** | Not available by default            | Automatically available (Swagger UI)           |
 | **When to Use**      | Good for small websites or learning | Great for APIs, data apps, and larger projects |
+
+---
+
+## Interview Questions
+
+**Q1: What is FastAPI and what are the main tools it is built upon?**
+**Answer:** FastAPI is a modern, high-performance Python web framework used for building APIs. It is built under the hood using **Starlette** (for asynchronous web routing) and **Pydantic** (for data validation).
+
+**Q2: Who created FastAPI and in what year was it launched?**
+**Answer:** FastAPI was created by Sebastián Ramírez and was launched in 2018.
+
+**Q3: How does FastAPI handle data validation?**
+**Answer:** FastAPI uses Pydantic models to automatically validate incoming data types. If a user provides invalid data (like sending text instead of an expected integer), FastAPI catches it automatically and returns a clear, structured JSON error message without crashing the application.
+
+**Q4: What is Uvicorn, and why is it needed in a FastAPI project?**
+**Answer:** Uvicorn is an ASGI (Asynchronous Server Gateway Interface) web server. While FastAPI is the web framework that handles routing and logic, Uvicorn acts as the foundational server layer that actually listens for external HTTP requests and passes them asynchronously to FastAPI.
+
+**Q5: What are the three layers of the FastAPI execution stack?**
+**Answer:** From top to bottom, the stack is:
+1. **Application Layer:** Your custom Python code and business logic.
+2. **FastAPI Layer:** The web framework handling routing and data validation.
+3. **Uvicorn Layer:** The web server listening for outside HTTP requests.
+
+**Q6: Explain what open standards FastAPI is based on.**
+**Answer:** FastAPI is built entirely on open standards, specifically **OpenAPI** (for API definitions and documentation) and **JSON Schema** (for defining data structures).
+
+**Q7: What is Swagger UI in the context of FastAPI?**
+**Answer:** Swagger UI is an interactive API documentation interface that FastAPI generates automatically. It acts as a built-in testing page or "playground" where developers can test their API endpoints directly from the web browser without needing external tools like Postman.
+
+**Q8: In a traditional 3-tier web architecture, where does FastAPI fit?**
+**Answer:** FastAPI fits into the **Application / Service Tier (Backend)**. It sits between the Presentation Tier (Frontend/UI) and the Persistence Tier (Database), receiving requests from users, processing business rules, querying the database, and returning responses.
+
+**Q9: What are some major companies that use FastAPI in production?**
+**Answer:** FastAPI is utilized by large tech companies including Netflix (for internal data tools), Microsoft, Uber (for high-performance APIs), and Explosion (creators of the spaCy library).
+
+**Q10: What makes FastAPI a better choice than Flask for modern API development?**
+**Answer:** While Flask is great for small websites and learning, FastAPI is much faster, natively supports asynchronous programming, automatically handles data validation, and generates interactive API documentation out-of-the-box.
+
+**Q11: FastAPI was built using the following tool.**
+**Answer:** Starlette
+
+**Q12: FastAPI was created in which year?**
+**Answer:** 2018
