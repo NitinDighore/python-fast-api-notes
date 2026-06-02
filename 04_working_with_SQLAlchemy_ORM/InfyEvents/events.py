@@ -3,6 +3,7 @@ from schema import EventSchema
 from models import Event
 from config import session, get_db
 from datetime import date
+from sqlalchemy import func, extract, or_
 
 proj = FastAPI(title="AI Event Assistant")
 
@@ -24,6 +25,16 @@ def upcoming_events(db: session = Depends(get_db)):
     upcoming = db.query(Event).filter(Event.date >= today).order_by(Event.date).all()
     return {"upcoming_events": upcoming}
 
+@proj.get("/events/popular")
+def popular_events(db: session = Depends(get_db)):
+    popular = db.query(Event).order_by(Event.participants.desc()).limit(3).all()
+    return {"popular_events": popular}
+
+@proj.get("/events/search")
+def search_events(keyword: str, db: session = Depends(get_db)):
+    results = db.query(Event).filter(or_(Event.title.contains(keyword), Event.description.contains(keyword))).all()
+    return {"search_results": results}
+
 @proj.get("/events/{event_id}")
 def get_event(event_id: int, db: session = Depends(get_db)):
     event = db.query(Event).filter(Event.id == event_id).first()
@@ -31,6 +42,17 @@ def get_event(event_id: int, db: session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Event not found")
     return {"event details": event}
 
+@proj.get("/events/monthly/{year}")
+def get_monthly_events(year: int, db: session = Depends(get_db)):
+    results = db.query(
+        extract('month', Event.date).label('month'),
+        func.count(Event.id).label('count')
+    ).filter(
+        extract('year', Event.date) == year
+    ).group_by(
+        extract('month', Event.date)
+    ).all()
+    return [{"month": int(r.month), "count": r.count} for r in results]
 
 @proj.put("/events/change/{event_id}")
 def update_event(event: EventSchema, db: session = Depends(get_db)):
@@ -57,4 +79,3 @@ def cancel_event(event_id: int, db: session = Depends(get_db)):
     db.delete(event)
     db.commit()
     return {"message": f"Event with ID {event_id} cancelled"}
-
