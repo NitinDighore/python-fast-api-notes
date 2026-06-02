@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, HTTPException, Depends
 from schema import EventSchema
 from models import Event
@@ -79,3 +80,8 @@ def cancel_event(event_id: int, db: session = Depends(get_db)):
     db.delete(event)
     db.commit()
     return {"message": f"Event with ID {event_id} cancelled"}
+
+
+if __name__ == "__main__":
+    # Starting the student app on port 8003
+    uvicorn.run("main:app", host="localhost", port=8003, reload=True)
